@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Mentor - Your Personalized Career Path Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>🧠 AI Career Mentor</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#assessment" class="nav-link">Assessment</a>
+                <a href="#careers" class="nav-link">Careers</a>
+                <a href="#resources" class="nav-link">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Discover Your Perfect Career Path</h1>
+                    <p class="hero-subtitle">Let AI guide you to the career of your dreams with personalized recommendations, detailed roadmaps, and curated learning resources.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Careers Matched</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Success Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Learning Resources</span>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--lg cta-button" onclick="startAssessment()">
+                        Get Started - It's Free 
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="card-icon">💻</div>
+                        <h4>Software Engineer</h4>
+                        <p>$75k - $150k</p>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon">📊</div>
+                        <h4>Data Scientist</h4>
+                        <p>$95k - $165k</p>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon">🔒</div>
+                        <h4>Cybersecurity</h4>
+                        <p>$80k - $140k</p>
+                    </div>
+                    <div class="floating-card card-4">
+                        <div class="card-icon">🎨</div>
+                        <h4>UX Designer</h4>
+                        <p>$65k - $120k</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Section -->
+    <section id="assessment" class="assessment-section hidden">
+        <div class="container">
+            <div class="assessment-header">
+                <h2>Career Assessment</h2>
+                <p>Answer a few questions to discover your ideal career path</p>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">Step <span id="currentStep">1</span> of <span id="totalSteps">8</span></span>
+                </div>
+            </div>
+
+            <div class="assessment-content">
+                <!-- Step 1: Education Level -->
+                <div class="assessment-step active" data-step="1">
+                    <h3>What's your current education level?</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="education" value="high-school">
+                            <div class="option-content">
+                                <div class="option-icon">🎓</div>
+                                <span>High School</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="education" value="bachelors">
+                            <div class="option-content">
+                                <div class="option-icon">🎓</div>
+                                <span>Bachelor's Degree</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="education" value="masters">
+                            <div class="option-content">
+                                <div class="option-icon">🎓</div>
+                                <span>Master's Degree</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="education" value="bootcamp">
+                            <div class="option-content">
+                                <div class="option-icon">💻</div>
+                                <span>Bootcamp</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="education" value="self-taught">
+                            <div class="option-content">
+                                <div class="option-icon">📚</div>
+                                <span>Self-taught</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: Experience Level -->
+                <div class="assessment-step" data-step="2">
+                    <h3>What's your experience level?</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="experience" value="beginner">
+                            <div class="option-content">
+                                <div class="option-icon">🌱</div>
+                                <span>Beginner</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="experience" value="intermediate">
+                            <div class="option-content">
+                                <div class="option-icon">🌿</div>
+                                <span>Intermediate</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="experience" value="advanced">
+                            <div class="option-content">
+                                <div class="option-icon">🌳</div>
+                                <span>Advanced</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="experience" value="expert">
+                            <div class="option-content">
+                                <div class="option-icon">🏆</div>
+                                <span>Expert</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 3: Interests -->
+                <div class="assessment-step" data-step="3">
+                    <h3>What areas interest you most? (Select all that apply)</h3>
+                    <div class="options-grid checkbox-grid">
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="interests" value="technology">
+                            <div class="option-content">
+                                <div class="option-icon">💻</div>
+                                <span>Technology</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="interests" value="healthcare">
+                            <div class="option-content">
+                                <div class="option-icon">🏥</div>
+                                <span>Healthcare</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="interests" value="finance">
+                            <div class="option-content">
+                                <div class="option-icon">💰</div>
+                                <span>Finance</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="interests" value="design">
+                            <div class="option-content">
+                                <div class="option-icon">🎨</div>
+                                <span>Design</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="interests" value="data-science">
+                            <div class="option-content">
+                                <div class="option-icon">📊</div>
+                                <span>Data Science</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="interests" value="cybersecurity">
+                            <div class="option-content">
+                                <div class="option-icon">🔒</div>
+                                <span>Cybersecurity</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 4: Skills Assessment -->
+                <div class="assessment-step" data-step="4">
+                    <h3>Rate your current skill levels</h3>
+                    <div class="skills-assessment">
+                        <div class="skill-item">
+                            <label>Programming</label>
+                            <div class="skill-slider">
+                                <input type="range" name="programming" min="1" max="10" value="5">
+                                <span class="skill-value">5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label>Analytics</label>
+                            <div class="skill-slider">
+                                <input type="range" name="analytics" min="1" max="10" value="5">
+                                <span class="skill-value">5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label>Communication</label>
+                            <div class="skill-slider">
+                                <input type="range" name="communication" min="1" max="10" value="5">
+                                <span class="skill-value">5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label>Leadership</label>
+                            <div class="skill-slider">
+                                <input type="range" name="leadership" min="1" max="10" value="5">
+                                <span class="skill-value">5</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <label>Creativity</label>
+                            <div class="skill-slider">
+                                <input type="range" name="creativity" min="1" max="10" value="5">
+                                <span class="skill-value">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Career Goals -->
+                <div class="assessment-step" data-step="5">
+                    <h3>What's most important to you in your career?</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="goals" value="salary">
+                            <div class="option-content">
+                                <div class="option-icon">💰</div>
+                                <span>High Salary</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="goals" value="balance">
+                            <div class="option-content">
+                                <div class="option-icon">⚖️</div>
+                                <span>Work-Life Balance</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="goals" value="innovation">
+                            <div class="option-content">
+                                <div class="option-icon">💡</div>
+                                <span>Innovation</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="goals" value="helping">
+                            <div class="option-content">
+                                <div class="option-icon">❤️</div>
+                                <span>Helping Others</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="goals" value="leadership">
+                            <div class="option-content">
+                                <div class="option-icon">👥</div>
+                                <span>Leadership</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 6: Work Style -->
+                <div class="assessment-step" data-step="6">
+                    <h3>What's your preferred work style?</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="workStyle" value="remote">
+                            <div class="option-content">
+                                <div class="option-icon">🏠</div>
+                                <span>Remote</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="workStyle" value="hybrid">
+                            <div class="option-content">
+                                <div class="option-icon">🔄</div>
+                                <span>Hybrid</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="workStyle" value="office">
+                            <div class="option-content">
+                                <div class="option-icon">🏢</div>
+                                <span>In-Person</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="workStyle" value="flexible">
+                            <div class="option-content">
+                                <div class="option-icon">🎯</div>
+                                <span>Flexible</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 7: Time Commitment -->
+                <div class="assessment-step" data-step="7">
+                    <h3>How much time can you dedicate to learning new skills?</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="timeCommitment" value="1-5">
+                            <div class="option-content">
+                                <div class="option-icon">⏰</div>
+                                <span>1-5 hours/week</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="timeCommitment" value="6-10">
+                            <div class="option-content">
+                                <div class="option-icon">⏰</div>
+                                <span>6-10 hours/week</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="timeCommitment" value="11-20">
+                            <div class="option-content">
+                                <div class="option-icon">⏰</div>
+                                <span>11-20 hours/week</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="timeCommitment" value="20+">
+                            <div class="option-content">
+                                <div class="option-icon">⚡</div>
+                                <span>20+ hours/week</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 8: Additional Preferences -->
+                <div class="assessment-step" data-step="8">
+                    <h3>Any additional preferences?</h3>
+                    <div class="options-grid checkbox-grid">
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="preferences" value="startup">
+                            <div class="option-content">
+                                <div class="option-icon">🚀</div>
+                                <span>Startup Environment</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="preferences" value="corporate">
+                            <div class="option-content">
+                                <div class="option-icon">🏢</div>
+                                <span>Large Corporation</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="preferences" value="travel">
+                            <div class="option-content">
+                                <div class="option-icon">✈️</div>
+                                <span>Travel Opportunities</span>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-option">
+                            <input type="checkbox" name="preferences" value="growth">
+                            <div class="option-content">
+                                <div class="option-icon">📈</div>
+                                <span>Rapid Growth</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="assessment-navigation">
+                <button class="btn btn--secondary" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+                <button class="btn btn--primary" id="nextBtn" onclick="nextStep()">Next</button>
+                <button class="btn btn--primary hidden" id="submitBtn" onclick="submitAssessment()">Get My Results</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Section -->
+    <section id="loading" class="loading-section hidden">
+        <div class="container">
+            <div class="loading-content">
+                <div class="ai-animation">
+                    <div class="ai-brain">🧠</div>
+                    <div class="loading-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <h2>AI is analyzing your responses...</h2>
+                <p>Generating personalized career recommendations based on your profile</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section hidden">
+        <div class="container">
+            <div class="results-header">
+                <h2>Your Personalized Career Recommendations</h2>
+                <p>Based on your assessment, here are the careers that best match your profile</p>
+            </div>
+            <div id="careerRecommendations" class="career-grid">
+                <!-- Career cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section hidden">
+        <div class="container">
+            <div class="roadmap-header">
+                <h2>Your Learning Roadmap</h2>
+                <p id="selectedCareerTitle">Software Engineer Career Path</p>
+            </div>
+            <div id="roadmapTimeline" class="timeline">
+                <!-- Timeline will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources-section hidden">
+        <div class="container">
+            <div class="resources-header">
+                <h2>Learning Resources</h2>
+                <p>Curated courses, certifications, and materials for your career path</p>
+            </div>
+            <div id="resourcesGrid" class="resources-grid">
+                <!-- Resources will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section hidden">
+        <div class="container">
+            <div class="download-content">
+                <h2>Download Your Career Plan</h2>
+                <p>Get a comprehensive PDF with your career recommendations, roadmap, and resources</p>
+                <div class="download-preview" id="pdfPreview">
+                    <h3>Your Career Plan Includes:</h3>
+                    <ul>
+                        <li>✅ Personalized career recommendations</li>
+                        <li>✅ 12-month learning roadmap</li>
+                        <li>✅ Curated learning resources</li>
+                        <li>✅ Skills development timeline</li>
+                        <li>✅ Certification recommendations</li>
+                    </ul>
+                </div>
+                <div class="download-actions">
+                    <button class="btn btn--primary btn--lg" onclick="generatePDF()">
+                        📄 Download PDF Plan
+                    </button>
+                    <button class="btn btn--secondary btn--lg" onclick="retakeAssessment()">
+                        🔄 Retake Assessment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
